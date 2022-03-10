@@ -8,7 +8,7 @@
 |범위|정리|
 |:-----|:---:|
 |0. 코딩 테스트를 위한 파이썬 문법||
-|1. Greedy|[velog](https://velog.io/@bbirong/%EC%9D%B4%EA%B2%83%EC%9D%B4-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4-%EA%B7%B8%EB%A6%AC%EB%94%94)|
+|1. Greedy|[개념/실전문제](https://velog.io/@bbirong/%EC%9D%B4%EA%B2%83%EC%9D%B4-%EC%BD%94%EB%94%A9-%ED%85%8C%EC%8A%A4%ED%8A%B8%EB%8B%A4-%EA%B7%B8%EB%A6%AC%EB%94%94) <br> [기출문제](https://velog.io/@bbirong/1-2.-Greedy-%EA%B8%B0%EC%B6%9C-%EB%AC%B8%EC%A0%9C)|
 |2. 구현||
 |3. DFS/BFS||
 |4. 정렬||
