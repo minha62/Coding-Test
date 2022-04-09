@@ -13,7 +13,7 @@
 |3. DFS/BFS|[개념/실전문제](https://velog.io/@bbirong/3-1.-DFSBFS-%EA%B0%9C%EB%85%90-%EC%8B%A4%EC%A0%84-%EB%AC%B8%EC%A0%9C)|
 |4. 정렬|[개념/실전문제](https://velog.io/@bbirong/4-1.-%EC%A0%95%EB%A0%AC-%EA%B0%9C%EB%85%90-%EC%8B%A4%EC%A0%84-%EB%AC%B8%EC%A0%9C)|
 |5. 이진 탐색|[개념/실전문제](https://velog.io/@bbirong/5-1.-%EC%9D%B4%EC%A7%84%ED%83%90%EC%83%89-%EA%B0%9C%EB%85%90-%EC%8B%A4%EC%A0%84-%EB%AC%B8%EC%A0%9C)|
-|6. 다이나믹 프로그래밍||
+|6. 다이나믹 프로그래밍|[개념/실전문제](https://velog.io/@bbirong/6-1.-%EB%8B%A4%EC%9D%B4%EB%82%98%EB%AF%B9-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B0%9C%EB%85%90-%EC%8B%A4%EC%A0%84-%EB%AC%B8%EC%A0%9C)|
 |7. 최단 경로||
 |8. 그래프 이론||
 
