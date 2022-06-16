@@ -1,42 +1,46 @@
-n = int(input())
-# 연산을 수행하고자 하는 수 리스트
-data = list(map(int, input().split()))
-# 더하기, 빼기, 곱하기, 나누기 연산자 개수
-add, sub, mul, div = map(int, input().split())
+# "균형잡힌 괄호 문자열"의 인덱스 반환
+def balanced_index(p):
+    count = 0 # 왼쪽 괄호의 개수
+    for i in range(len(p)):
+        if p[i] == '(':
+            count += 1
+        else:
+            count -= 1
+        if count == 0:
+            return i
 
-# 최솟값과 최댓값 초기화
-min_value = 1e9
-max_value = -1e9
+# "올바른 괄호 문자열"인지 판단
+def check_proper(p):
+    count = 0 # 왼쪽 괄호의 개수
+    for i in p:
+        if i == '(':
+            count += 1
+        else:
+            if count == 0: # 쌍이 맞지 않는 경우에 False 반환
+                return False
+            count -= 1
+    return True # 쌍이 맞는 경우에 True 반환
 
-# 깊이 우선 탐색 (DFS) 메서드
-def dfs(i, now):
-    global min_value, max_value, add, sub, mul, div
-    # 모든 연산자를 다 사용한 경우, 최솟값과 최댓값 업데이트
-    if i == n:
-        min_value = min(min_value, now)
-        max_value = max(max_value, now)
+def solution(p):
+    answer = ''
+    if p == '':
+        return answer
+    index = balanced_index(p)
+    u = p[:index + 1]
+    v = p[index + 1:]
+    # "올바른 괄호 문자열"이면, v에 대해 함수를 수행한 결과를 붙여 반환
+    if check_proper(u):
+        answer = u + solution(v)
+    # "올바른 괄호 문자열"이 아니라면 아래의 과정을 수행
     else:
-        # 각 연산자에 대하여 재귀적으로 수행
-        if add > 0:
-            add -= 1
-            dfs(i + 1, now + data[i])
-            add += 1
-        if sub > 0:
-            sub -= 1
-            dfs(i + 1, now - data[i])
-            sub += 1
-        if mul > 0:
-            mul -= 1
-            dfs(i + 1, now * data[i])
-            mul += 1
-        if div > 0:
-            div -= 1
-            dfs(i + 1, int(now / data[i])) # 나눌 때는 나머지를 제거
-            div += 1
-
-# DFS 메서드 호출
-dfs(1, data[0])
-
-# 최댓값과 최솟값 차례대로 출력
-print(max_value)
-print(min_value)
+        answer = '('
+        answer += solution(v)
+        answer += ')'
+        u = list(u[1:-1]) # 첫 번째와 마지막 문자를 제거
+        for i in range(len(u)):
+            if u[i] == '(':
+                u[i] = ')'
+            else:
+                u[i] = '('
+        answer += "".join(u)
+    return answer
