@@ -213,3 +213,42 @@ SELECT DEPTNO, DECODE(DEPTNO,
 FROM EMP
 GROUP BY DEPTNO;
 ```
+
+31. 업무를 표시한 다음 해당 업무에 대해 부서번호, 부서 번호별 급여 총액, 부서명 출력
+```sql
+SELECT E.DEPTNO 부서번호, SUM(E.SAL) 총액, D.DNAME 부서명
+FROM EMP E, DEPT D
+WHERE E.DEPTNO=D.DEPTNO
+GROUP BY E.DEPTNO, D.DNAME;
+```
+
+32. Equi Join(등가조인)을 상용하여 SCOTT 사원의 부서번호와 부서이름 출력
+```sql
+SELECT E.ENAME 사원명, E.DEPTNO 부서번호, D.DNAME 부서이름
+FROM EMP E, DEPT D
+WHERE E.DEPTNO = D.DEPTNO AND E.ENAME LIKE 'SCOTT';
+``` 
+
+33. INNER JOIN과 ON 연산자를 사용하여 사원명, 소속된 부서이름, 지역명 출력
+```sql
+SELECT e.ename 사원명, d.dname 부서이름, d.loc 지역명
+FROM emp e INNER JOIN dept d
+ON e.deptno = d.deptno;
+```
+
+34. INNER JOIN과 USING 연산자를 사용하여 10번 부서에 속하는 모든 담당 업무 목록을 부서의 지역명을 포함해 출력
+```sql
+SELECT e.empno 사원번호, d.loc 지역명, e.job 담당업무
+FROM emp e INNER JOIN dept d
+USING (deptno)
+WHERE deptno = 10;
+```
+
+35. NATURAL JOIN을 사용해 커미션을 받는 모든 사원의 이름, 부서이름, 지역명 출력
+```sql
+SELECT e.ename 사원명, d.dname 부서이름, d.loc 지역명
+FROM emp e NATURAL JOIN dept d
+WHERE NOT comm IS NULL;
+```
+> 📌 WHERE는 이미 테이블과의 JOIN이 이루어진 상황이므로 alias 없이 컬럼 이름만 사용해도 됨
+
