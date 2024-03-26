@@ -31,3 +31,15 @@ select tweet_id from Tweets where length(content)>15;
 ```sql
 select * from cinema where mod(id,2)=1 and description<>'boring' order by rating desc;
 ```
+
+
+
+<br>
+
+## Sorting and Grouping
+
+### 2356. Number of Unique Subjects Taught by Each Teacher
+
+```sql
+select teacher_id, count(distinct subject_id) cnt from Teacher group by teacher_id;
+```
