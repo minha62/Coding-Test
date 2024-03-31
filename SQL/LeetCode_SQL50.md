@@ -60,6 +60,37 @@ WHERE transaction_id IS NULL
 GROUP BY customer_id;
 ```
 
+### 🐳 197. Rising Temperature 🐳
+```sql
+SELECT now_w.id
+FROM Weather now_w LEFT OUTER JOIN Weather prev_w
+ON now_w.recordDate-1 = prev_w.recordDate
+WHERE now_w.temperature > prev_w.temperature;
+```
+
+### 1075. Project Employees I
+
+```sql
+SELECT pj.project_id AS project_id, ROUND(SUM(emp.experience_years)/COUNT(pj.project_id),2) AS average_years
+FROM Project pj LEFT OUTER JOIN Employee emp
+USING (employee_id)
+WHERE NOT emp.experience_years IS NULL
+GROUP BY project_id;
+```
+```sql
+SELECT pj.project_id AS project_id, ROUND(AVG(emp.experience_years),2) AS average_years
+FROM Project pj LEFT OUTER JOIN Employee emp
+USING (employee_id)
+GROUP BY project_id;
+```
+
+
+```sql
+Create table If Not Exists 테이블명 (변수명1 타입1, 변수명2 타입2, ...)
+Truncate table 테이블명
+Insert into 테이블명 (변수명1, 변수명2, ...) values (변수값1, 변수값2, ...)
+```
+
 
 <br>
 
